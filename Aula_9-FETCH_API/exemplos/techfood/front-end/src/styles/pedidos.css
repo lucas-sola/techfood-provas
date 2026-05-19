@@ -125,7 +125,14 @@
 .btn-pedidos-grupo {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.btn-limpar-pedidos,
+.btn-voltar-cardapio,
+.btn-enviar-cozinha {
+  white-space: nowrap;
 }
 
 .btn-limpar-pedidos {
