@@ -312,3 +312,18 @@
   font-weight: bold;
   color: #e67e22;
 }
+
+/* ── Painel "Conta da Mesa" — Aula 9 ────────────────────────
+   Mostrado ao clicar em "Ver Conta da Mesa".
+   Usa fundo levemente diferente para distinguir do carrinho atual.
+   A lista reutiliza .item-pedido — mesmo padrão visual.
+   ─────────────────────────────────────────────────────────── */
+#lista-conta {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fffbf5;
+}
