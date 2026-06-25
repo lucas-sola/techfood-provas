@@ -1,0 +1,130 @@
+/* ==========================================================
+   CADASTRO.CSS — Estilos específicos da página de Cadastro (Aula 10)
+
+   Reaproveita do global.css: header, menu, footer, tokens de cor
+   (--cor-primaria, --cor-destaque, --cor-verde, --cor-vermelho).
+   Aqui só entra o que é EXCLUSIVO do formulário de cadastro.
+   ========================================================== */
+
+/* Seção que envolve o formulário — centraliza e limita a largura */
+#secao-cadastro {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* O formulário em si — cartão branco com sombra */
+.form-cadastro {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Cada campo (label + input) empilhado */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo label {
+  font-weight: bold;
+  color: var(--cor-primaria);
+  font-size: 0.95rem;
+}
+
+/* Inputs, textarea e select com visual consistente */
+.campo input,
+.campo textarea,
+.campo select {
+  padding: 10px 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus {
+  outline: none;
+  border-color: var(--cor-destaque);
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+/* Campo de upload de arquivo — visual mais leve */
+.campo input[type="file"] {
+  padding: 8px;
+  border: 2px dashed #ccc;
+  background: #fafafa;
+  cursor: pointer;
+}
+
+.campo input[type="file"]:hover {
+  border-color: var(--cor-destaque);
+}
+
+/* Dica abaixo do campo (texto pequeno e cinza) */
+.dica-campo {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+/* Botão de cadastrar — destaque laranja, largura total */
+.btn-cadastrar {
+  background: var(--cor-destaque);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn-cadastrar:hover {
+  background: #d35400;
+}
+
+.btn-cadastrar:active {
+  transform: scale(0.98);
+}
+
+.btn-cadastrar:disabled {
+  background: #bbb;
+  cursor: not-allowed;
+}
+
+/* Área de feedback (mensagem de sucesso ou erro) */
+.feedback-cadastro {
+  text-align: center;
+  font-weight: bold;
+  min-height: 1.2em;
+  margin: 0;
+}
+
+.feedback-cadastro.sucesso {
+  color: var(--cor-verde);
+}
+
+.feedback-cadastro.erro {
+  color: var(--cor-vermelho);
+}
+
+/* ── Responsivo ────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .form-cadastro {
+    padding: 20px;
+  }
+}
