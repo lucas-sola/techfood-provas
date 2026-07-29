@@ -1,97 +1,128 @@
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-body { background: #f4f4f4; }
+/* ============================================
+   Demonstração Interativa — Kickoff
+   Estilos autocontidos e simples (sem framework).
+   ============================================ */
 
-header {
-  background: #2c3e50;
-  color: #fff;
-  padding: 20px 40px;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFE4B5 100%);
+  min-height: 100vh;
+  padding: 24px;
+  color: #2B2B2B;
 }
-header h1 { font-size: 1.4rem; font-weight: 600; }
-header p  { font-size: .85rem; opacity: .6; margin-top: 4px; }
-header .aviso { color: #f39c12; opacity: 1; margin-top: 6px; }
 
-main { max-width: 960px; margin: 0 auto; padding: 30px 20px; }
+h1 {
+  text-align: center;
+  color: #C1272D;
+  margin-bottom: 4px;
+}
 
-/* Área de resultado */
-.area-demo {
-  background: #fff;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
-  padding: 20px;
+p.subtitulo {
+  text-align: center;
+  color: #666;
   margin-bottom: 24px;
 }
-.area-demo h2 { font-size: 1rem; color: #2c3e50; margin-bottom: 12px; }
 
-#resultado-demo {
-  background: #f9f9f9;
-  border-radius: 8px;
-  padding: 14px;
-  font-size: .88rem;
-  color: #333;
-  min-height: 60px;
-  line-height: 1.6;
-}
-.resultado-vazio { color: #bbb; font-style: italic; }
-
-/* Painel de botões */
-.painel-botoes {
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 24px;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
-.grupo {
+
+@media (max-width: 800px) {
+  .container { grid-template-columns: 1fr; }
+}
+
+.painel {
   background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  padding: 16px;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
-.grupo h3 {
-  font-size: .78rem;
-  text-transform: uppercase;
-  letter-spacing: .5px;
-  color: #999;
-  margin-bottom: 10px;
+
+.painel h2 {
+  color: #C1272D;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #FFE4B5;
+  padding-bottom: 8px;
 }
-.grupo button {
-  display: block;
-  width: 100%;
-  margin-bottom: 8px;
-  padding: 9px 14px;
-  background: #2c3e50;
+
+.botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  padding: 12px 16px;
+  background: #C1272D;
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-size: 0.95rem;
   cursor: pointer;
-  font-size: .82rem;
   text-align: left;
-  transition: background .15s;
+  transition: background 0.15s, transform 0.15s;
 }
-.grupo button:hover { background: #34495e; }
-.grupo button:last-child { margin-bottom: 0; }
 
-.grupo.reset { grid-column: 1 / -1; }
-.grupo.reset button {
-  background: #c0392b;
-  text-align: center;
-  font-weight: bold;
+button:hover {
+  background: #A11E23;
+  transform: translateY(-1px);
 }
-.grupo.reset button:hover { background: #e74c3c; }
 
-/* Console visual */
-.console-visual {
-  background: #2c3e50;
-  color: #2ecc71;
-  border-radius: 10px;
-  padding: 20px 24px;
-  font-family: monospace;
-  font-size: .88rem;
-  line-height: 1.8;
-  min-height: 100px;
+button.reset {
+  background: #555;
+  margin-top: 12px;
 }
-.console-placeholder { color: #7f8c8d; font-style: italic; }
-.amarelo { color: #f1c40f; }
-.laranja  { color: #e67e22; }
-.vermelho { color: #e74c3c; }
-.azul     { color: #3498db; }
-.roxo     { color: #9b59b6; }
+
+button.reset:hover { background: #333; }
+
+.console {
+  background: #1E1E1E;
+  color: #D4D4D4;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.85rem;
+  padding: 16px;
+  border-radius: 8px;
+  height: 320px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+/* Cores estilo VS Code para o "console" simulado */
+.console .titulo    { color: #FFD700; font-weight: bold; }
+.console .comando   { color: #9CDCFE; }
+.console .resultado { color: #B5CEA8; }
+.console .comentario{ color: #6A9955; font-style: italic; }
+
+.visual {
+  background: #FFF8F0;
+  border: 2px dashed #C1272D;
+  border-radius: 8px;
+  padding: 16px;
+  min-height: 180px;
+  margin-top: 12px;
+}
+
+.card-visual {
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.card-visual:hover { background: #FFE4B5; }
+
+.card-visual.destaque {
+  background: #FFD700;
+  border-left: 4px solid #C1272D;
+}
