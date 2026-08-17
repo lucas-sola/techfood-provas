@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demonstração Interativa — Kickoff (OO + DOM)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>🎯 Demonstração Interativa</h1>
+  <p class="subtitulo">Clique em cada botão para ver o conceito acontecendo ao vivo</p>
+
+  <div class="container">
+
+    <!-- ===== PAINEL 1: Botões ===== -->
+    <div class="painel">
+      <h2>⚙️ Conceitos</h2>
+      <div class="botoes">
+        <button onclick="demoClasse()">1️⃣ Criar uma CLASSE Prato</button>
+        <button onclick="demoObjeto()">2️⃣ Instanciar um OBJETO</button>
+        <button onclick="demoMetodo()">3️⃣ Chamar um MÉTODO</button>
+        <button onclick="demoSelecionar()">4️⃣ SELECIONAR elemento (DOM)</button>
+        <button onclick="demoManipular()">5️⃣ MANIPULAR elemento (DOM)</button>
+        <button onclick="demoRenderizar()">6️⃣ RENDERIZAR lista dinâmica</button>
+        <button onclick="demoEvento()">7️⃣ Adicionar EVENTO de clique</button>
+        <button class="reset" onclick="resetar()">🔄 Resetar tudo</button>
+      </div>
+    </div>
+
+    <!-- ===== PAINEL 2: Console + Visual ===== -->
+    <div class="painel">
+      <h2>📟 Console (o que aconteceu)</h2>
+      <div id="console" class="console"><span class="comentario">// Clique em um botão para começar</span></div>
+
+      <h2 style="margin-top:16px;">🖼️ Visualização</h2>
+      <div id="visual" class="visual">
+        <em style="color:#888;">Área visual aparece aqui quando envolver DOM.</em>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

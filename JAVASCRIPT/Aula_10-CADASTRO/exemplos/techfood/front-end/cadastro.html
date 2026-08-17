@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD:Aula_9-FETCH_API/exemplos/techfood/front-end/cadastro.html
+    <meta name="description" content="Cadastre novos pratos no cardápio do TechFood." />
+=======
+>>>>>>> e1eb2c9053a2a206a9acbdfce721f2557c16e906:JAVASCRIPT/Aula_10-CADASTRO/exemplos/techfood/front-end/cadastro.html
+    <link rel="stylesheet" href="src/styles/global.css" />
+    <link rel="stylesheet" href="src/styles/cadastro.css" />
+    <title>TechFood - Cadastrar Prato</title>
+  </head>
+  <body>
+<<<<<<< HEAD:Aula_9-FETCH_API/exemplos/techfood/front-end/cadastro.html
+
+    <!-- =====================================================
+         HEADER — mesmo padrão das outras páginas (global.css)
+         Link "Cadastrar Prato" recebe classe ativo via cadastro.js
+    ===================================================== -->
+    <header id="topo-loja">
+      <h1 id="titulo-site">TechFood - Sabor &amp; Saber</h1>
+=======
+    <!-- =====================================================
+         CADASTRO DE PRATO — Aula 10
+         Página nova. O menu (index.html e pedidos.html) já
+         apontava para cá desde a Aula 9 — agora o arquivo existe.
+
+         O formulário envia para POST /produtos (api.js →
+         cadastrarProduto). Como há upload de imagem, o cadastro.js
+         monta um FormData (texto + arquivo no mesmo envio).
+
+         A TÉCNICA de receber e salvar a imagem é do BACK-END.
+         O front só fornece o campo de upload e o botão de enviar.
+    ===================================================== -->
+
+    <header id="topo-loja">
+      <h1 id="titulo-site">TechFood - Sabor & Saber</h1>
+>>>>>>> e1eb2c9053a2a206a9acbdfce721f2557c16e906:JAVASCRIPT/Aula_10-CADASTRO/exemplos/techfood/front-end/cadastro.html
+      <p id="boas-vindas">Carregando...</p>
+
+      <input type="checkbox" id="bt_menu" />
+      <label for="bt_menu" id="label-menu" aria-label="Abrir menu">&#9776;</label>
+
+<<<<<<< HEAD:Aula_9-FETCH_API/exemplos/techfood/front-end/cadastro.html
+      <nav id="menu">
+        <ul>
+          <li><a href="index.html">Cardápio</a></li>
+          <li><a href="pedidos.html">Meus Pedidos</a></li>
+          <li><a href="cadastro.html" class="menu-ativo">Cadastrar Prato</a></li>
+=======
+      <nav id="menu" role="navigation" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Cardápio</a></li>
+          <li><a href="pedidos.html">Meus Pedidos</a></li>
+          <li><a href="cadastro.html" class="ativo">Cadastrar Prato</a></li>
+>>>>>>> e1eb2c9053a2a206a9acbdfce721f2557c16e906:JAVASCRIPT/Aula_10-CADASTRO/exemplos/techfood/front-end/cadastro.html
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="secao-cadastro">
+<<<<<<< HEAD:Aula_9-FETCH_API/exemplos/techfood/front-end/cadastro.html
+        <h2 class="titulo-secao">Cadastrar Novo Prato</h2>
+
+        <!-- =====================================================
+             CARD DO FORMULÁRIO
+             Estratégia de imagem: FileReader (Base64)
+             O usuário faz upload de um arquivo local,
+             o JS converte para Base64 e mostra a preview.
+             O Base64 é enviado no campo "imagem" para o POST /produtos.
+        ===================================================== -->
+        <div class="cadastro-card">
+
+          <!-- Preview da imagem -->
+          <div class="preview-box" id="preview-box">
+            <span class="preview-placeholder" id="preview-placeholder">
+              🍽️<br />Selecione uma imagem
+            </span>
+            <img id="preview-img" src="" alt="Preview do prato" style="display:none;" />
+          </div>
+
+          <form id="form-cadastro" novalidate>
+
+            <!-- Campo: Imagem (estratégia FileReader / Base64) -->
+            <div class="campo-grupo">
+              <label for="input-imagem">Foto do Prato</label>
+              <div class="upload-area" id="upload-area">
+                <input
+                  type="file"
+                  id="input-imagem"
+                  accept="image/*"
+                  style="display:none;"
+                />
+                <button type="button" id="btn-escolher-imagem">
+                  📁 Escolher imagem
+                </button>
+                <span id="nome-arquivo">Nenhum arquivo selecionado</span>
+              </div>
+            </div>
+
+            <!-- Campo: Nome -->
+            <div class="campo-grupo">
+              <label for="input-nome">Nome do Prato <span class="obrigatorio">*</span></label>
+              <input
+                type="text"
+                id="input-nome"
+                placeholder="Ex: Lasanha à Bolonhesa"
+                maxlength="80"
+                required
+              />
+            </div>
+
+            <!-- Campo: Descrição -->
+            <div class="campo-grupo">
+              <label for="input-descricao">Descrição <span class="obrigatorio">*</span></label>
+              <textarea
+                id="input-descricao"
+                placeholder="Descreva os ingredientes e o preparo..."
+                maxlength="300"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Linha: Preço + Categoria -->
+            <div class="campo-linha">
+              <div class="campo-grupo">
+                <label for="input-preco">Preço (R$) <span class="obrigatorio">*</span></label>
+                <input
+                  type="number"
+                  id="input-preco"
+                  placeholder="0.00"
+                  min="0"
+                  step="0.01"
+                  required
+                />
+              </div>
+
+              <div class="campo-grupo">
+                <label for="input-categoria">Categoria <span class="obrigatorio">*</span></label>
+                <select id="input-categoria" required>
+                  <option value="">-- Selecione --</option>
+                  <option value="Massa">Massa</option>
+                  <option value="Carne">Carne</option>
+                  <option value="Frango">Frango</option>
+                  <option value="Peixe">Peixe</option>
+                  <option value="Salada">Salada</option>
+                  <option value="Sobremesa">Sobremesa</option>
+                  <option value="Bebida">Bebida</option>
+                  <option value="Outro">Outro</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Campo: Disponível -->
+            <div class="campo-grupo campo-toggle">
+              <label>Disponível no cardápio?</label>
+              <div class="toggle-box">
+                <input type="checkbox" id="input-disponivel" checked />
+                <label for="input-disponivel" class="toggle-label" aria-label="Disponível"></label>
+                <span id="texto-disponivel">Sim</span>
+              </div>
+            </div>
+
+            <!-- Feedback de erro / sucesso -->
+            <div id="feedback-cadastro" style="display:none;"></div>
+
+            <!-- Botões -->
+            <div class="btn-grupo">
+              <button type="button" id="btn-limpar-form" class="btn-secundario">
+                Limpar
+              </button>
+              <button type="submit" id="btn-salvar" class="btn-primario">
+                💾 Salvar Prato
+              </button>
+            </div>
+
+          </form>
+        </div>
+=======
+        <h2 class="titulo-secao">&#127859; Cadastrar Novo Prato</h2>
+
+        <!-- =====================================================
+             FORMULÁRIO DE CADASTRO
+             Cada campo tem um id que o cadastro.js vai ler.
+             enctype="multipart/form-data" — necessário em formulários
+             com upload de arquivo (mesmo que o envio real seja via JS).
+        ===================================================== -->
+        <form id="form-cadastro" class="form-cadastro" enctype="multipart/form-data">
+          <!-- Nome do prato -->
+          <div class="campo">
+            <label for="nome">Nome do prato *</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Ex: Lasanha à Bolonhesa"
+              maxlength="60"
+              required
+            />
+          </div>
+
+          <!-- Descrição -->
+          <div class="campo">
+            <label for="descricao">Descrição *</label>
+            <textarea
+              id="descricao"
+              name="descricao"
+              placeholder="Ex: Massa fresca com molho de tomate e carne moída"
+              maxlength="200"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+
+          <!-- Preço -->
+          <div class="campo">
+            <label for="preco">Preço (R$) *</label>
+            <input
+              type="number"
+              id="preco"
+              name="preco"
+              placeholder="Ex: 42.00"
+              step="0.01"
+              min="0"
+              required
+            />
+          </div>
+
+          <!-- Categoria -->
+          <div class="campo">
+            <label for="categoria">Categoria *</label>
+            <select id="categoria" name="categoria" required>
+              <option value="">Selecione...</option>
+              <option value="entrada">Entrada</option>
+              <option value="massa">Massa</option>
+              <option value="prato-principal">Prato Principal</option>
+              <option value="sobremesa">Sobremesa</option>
+              <option value="bebida">Bebida</option>
+            </select>
+          </div>
+
+          <!-- Upload de imagem — o FRONT só fornece o botão.
+               O back-end de cada aluno decide como receber e salvar. -->
+          <div class="campo">
+            <label for="imagem">Foto do prato</label>
+            <input
+              type="file"
+              id="imagem"
+              name="imagem"
+              accept="image/*"
+            />
+            <small class="dica-campo">Formatos: JPG, PNG. Opcional.</small>
+          </div>
+
+          <!-- Botão enviar -->
+          <button type="submit" id="btn-cadastrar" class="btn-cadastrar">
+            Cadastrar Prato
+          </button>
+
+          <!-- Área de feedback (sucesso ou erro) — cadastro.js preenche -->
+          <p id="feedback-cadastro" class="feedback-cadastro"></p>
+        </form>
+>>>>>>> e1eb2c9053a2a206a9acbdfce721f2557c16e906:JAVASCRIPT/Aula_10-CADASTRO/exemplos/techfood/front-end/cadastro.html
+      </section>
+    </main>
+
+    <footer id="rodape">
+      <div class="info-footer">
+        <p><strong>TechFood 2026</strong></p>
+        <p>Escola SENAI Ítalo Bologna - Itu/SP</p>
+        <p>Av. das Nações, 1500</p>
+      </div>
+      <p id="data-hora-footer"></p>
+    </footer>
+
+    <!--
+<<<<<<< HEAD:Aula_9-FETCH_API/exemplos/techfood/front-end/cadastro.html
+      Ordem dos scripts:
+      1. global.js → saudação, footer, menu mobile
+      2. api.js    → funções de fetch (cadastro.js depende delas)
+=======
+      Ordem dos scripts — importante:
+      1. global.js  → funções compartilhadas (saudação, modal, data)
+      2. api.js     → funções de fetch (cadastro.js depende de cadastrarProduto)
+>>>>>>> e1eb2c9053a2a206a9acbdfce721f2557c16e906:JAVASCRIPT/Aula_10-CADASTRO/exemplos/techfood/front-end/cadastro.html
+      3. cadastro.js → lógica do formulário de cadastro
+    -->
+    <script src="src/scripts/global.js"></script>
+    <script src="src/scripts/api.js"></script>
+    <script src="src/scripts/cadastro.js"></script>
+  </body>
+</html>
